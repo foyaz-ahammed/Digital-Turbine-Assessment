@@ -51,6 +51,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-simplexml:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-jaxb:$versions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.ok_http"
 
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test.ext:junit:$versions.test_ext"
