@@ -2,6 +2,9 @@ package com.digitalturbine.assessment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.digitalturbine.assessment.databinding.ActivityMainBinding
 
 /**
@@ -10,7 +13,7 @@ import com.digitalturbine.assessment.databinding.ActivityMainBinding
  */
 class MainActivity : AppCompatActivity() {
     // Binding variable
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
