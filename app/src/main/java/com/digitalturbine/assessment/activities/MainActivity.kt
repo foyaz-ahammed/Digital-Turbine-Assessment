@@ -1,10 +1,8 @@
-package com.digitalturbine.assessment
+package com.digitalturbine.assessment.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.appcompat.app.AppCompatActivity
+import com.digitalturbine.assessment.R
 import com.digitalturbine.assessment.databinding.ActivityMainBinding
 
 /**

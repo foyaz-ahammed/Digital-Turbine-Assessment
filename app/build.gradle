@@ -35,13 +35,16 @@ android {
 }
 
 dependencies {
-
     implementation "androidx.core:core-ktx:$versions.androidx_core"
     implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
     implementation "com.google.android.material:material:$versions.android_material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.androidx_constraintlayout"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.androidx_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.androidx_navigation"
+
+    //Koin
+    implementation "io.insert-koin:koin-core:$versions.koin"
+    implementation "io.insert-koin:koin-android:$versions.koin"
 
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test.ext:junit:$versions.test_ext"
