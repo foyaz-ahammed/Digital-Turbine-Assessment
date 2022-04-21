@@ -12,7 +12,8 @@ import com.digitalturbine.assessment.repository.entities.Response
 /**
  * [ListAdapter] to show list of ads
  */
-class AdListAdapter: ListAdapter<Response.Ad, AdListAdapter.ViewHolder>(DiffCallback) {
+class AdListAdapter(private var listener: ((item: Response.Ad) -> Unit)? = null):
+    ListAdapter<Response.Ad, AdListAdapter.ViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RowAdItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -31,10 +32,14 @@ class AdListAdapter: ListAdapter<Response.Ad, AdListAdapter.ViewHolder>(DiffCall
             oldItem != newItem
     }
 
+    fun setItemClickListener(listener: ((item: Response.Ad) -> Unit)?) {
+        this.listener = listener
+    }
+
     /**
      * [ViewHolder] used to show an item
      */
-    class ViewHolder(private val binding: RowAdItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: RowAdItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Response.Ad) {
             binding.productName.text = item.productName
             binding.ratingBar.rating = item.rating
@@ -47,6 +52,7 @@ class AdListAdapter: ListAdapter<Response.Ad, AdListAdapter.ViewHolder>(DiffCall
                 .into(binding.productThumbnail)
 
             binding.root.setOnClickListener {
+                listener?.invoke(item)
             }
         }
     }

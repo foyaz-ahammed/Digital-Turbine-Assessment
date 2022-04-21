@@ -5,6 +5,18 @@
 
     <fragment
         android:id="@+id/adListFragment"
-        android:name="com.digitalturbine.assessment.fragments.AdListFragment" />
+        android:name="com.digitalturbine.assessment.fragments.AdListFragment">
+        <action
+            android:id="@+id/toAdDetailFragment"
+            app:destination="@id/adDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adDetailFragment"
+        android:name="com.digitalturbine.assessment.fragments.AdDetailFragment">
+        <action
+            android:id="@+id/toAdListFragment"
+            app:destination="@id/adListFragment" />
+    </fragment>
 
 </navigation>

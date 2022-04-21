@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.digitalturbine.assessment.R
 import com.digitalturbine.assessment.adapters.AdListAdapter
 import com.digitalturbine.assessment.databinding.FragmentAdListBinding
 import com.digitalturbine.assessment.repository.entities.LoadResult
@@ -34,14 +36,18 @@ class AdListFragment: Fragment() {
 
         binding.recyclerView.adapter = adapter
 
-        viewModel.adList.observe(viewLifecycleOwner) {
+        viewModel.adList.observe(requireActivity()) {
             adapter.submitList(it)
         }
-        viewModel.loading.observe(viewLifecycleOwner) {
+        viewModel.loading.observe(requireActivity()) {
             binding.progressBar.isVisible = it == LoadResult.LOADING
             binding.recyclerView.isVisible = it == LoadResult.SUCCESS
         }
 
         viewModel.loadData()
+
+        adapter.setItemClickListener {
+            findNavController().navigate(R.id.toAdDetailFragment)
+        }
     }
 }
