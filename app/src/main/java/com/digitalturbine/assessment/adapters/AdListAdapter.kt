@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.digitalturbine.assessment.databinding.RowAdItemBinding
 import com.digitalturbine.assessment.repository.entities.Response
 
@@ -30,9 +31,23 @@ class AdListAdapter: ListAdapter<Response.Ad, AdListAdapter.ViewHolder>(DiffCall
             oldItem != newItem
     }
 
+    /**
+     * [ViewHolder] used to show an item
+     */
     class ViewHolder(private val binding: RowAdItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Response.Ad) {
             binding.productName.text = item.productName
+            binding.ratingBar.rating = item.rating
+            binding.ratingNum.text = item.rating.toString()
+            binding.downloads.text = item.numberOfDownloads
+
+            Glide.with(binding.root.context.applicationContext)
+                .load(item.productThumbnail)
+                .fitCenter()
+                .into(binding.productThumbnail)
+
+            binding.root.setOnClickListener {
+            }
         }
     }
 }

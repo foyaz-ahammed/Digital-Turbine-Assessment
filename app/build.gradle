@@ -60,6 +60,10 @@ dependencies {
     //View model
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidx_lifecycle_viewmodel"
 
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$versions.glide"
+
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test.ext:junit:$versions.test_ext"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test_espresso"

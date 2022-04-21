@@ -7,5 +7,5 @@ object Constants {
     const val SITE_ID = 10777
     const val DEVICE_ID = 4230
     const val SESSION_ID = "techtestsession"
-    const val TOTAL_CAMPAIGNS_REQUESTED = 10
+    const val TOTAL_CAMPAIGNS_REQUESTED = 20
 }
