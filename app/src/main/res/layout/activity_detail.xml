@@ -1,6 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/detail_app_icon_size"
+        android:layout_height="@dimen/detail_app_icon_size"
+        tools:src="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:maxLines="1"
+        android:textColor="#111"
+        android:textSize="18sp"
+        tools:text="Snoopy Pop"
+        app:layout_constraintTop_toTopOf="@id/image"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="center_vertical"
+        android:textSize="13sp"
+        android:textColor="#33691e"
+        android:textStyle="bold"
+        tools:text="Education"
+        app:layout_constraintTop_toTopOf="@id/img_user"
+        app:layout_constraintBottom_toBottomOf="@id/img_user"
+        app:layout_constraintStart_toStartOf="@id/product_name"
+        app:layout_constraintEnd_toStartOf="@id/rating_bar"/>
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize=".5"
+        tools:rating="5"
+        app:layout_constraintTop_toTopOf="@id/img_user"
+        app:layout_constraintBottom_toBottomOf="@id/img_user"
+        app:layout_constraintEnd_toStartOf="@id/rating_count"
+        style="?android:attr/ratingBarStyleSmall"/>
+
+    <TextView
+        android:id="@+id/rating_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:gravity="center_vertical"
+        tools:text="10,000+"
+        app:layout_constraintTop_toTopOf="@id/img_user"
+        app:layout_constraintBottom_toBottomOf="@id/img_user"
+        app:layout_constraintEnd_toStartOf="@id/img_user" />
+
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintTop_toBottomOf="@id/product_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/btn_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:text="Install Now"
+        android:textAllCaps="false"
+        android:backgroundTint="#689f38"
+        app:layout_constraintTop_toBottomOf="@id/img_user"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:text="Puzzle &amp; Dragons is an addictive and FREE match-3 puzzle game with classic monster-collecting fun!"
+        android:textColor="#666"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="#eaeaea"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/additional_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/additional_information"
+        android:textAllCaps="true"
+        android:textColor="#212121"
+        app:layout_constraintTop_toBottomOf="@id/border"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/installs_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/installs"
+        android:textColor="#333"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/additional_info" />
+
+    <TextView
+        android:id="@+id/download_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="10,000+"
+        app:layout_constraintTop_toBottomOf="@id/installs_label"
+        app:layout_constraintStart_toStartOf="@id/installs_label" />
+</androidx.constraintlayout.widget.ConstraintLayout>

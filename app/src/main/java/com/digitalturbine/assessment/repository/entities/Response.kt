@@ -1,8 +1,10 @@
 package com.digitalturbine.assessment.repository.entities
 
+import android.os.Parcelable
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
+import java.io.Serializable
 
 /**
  * Network response class
@@ -75,7 +77,7 @@ class Response {
 
         @field:Element(name="numberOfDownloads") @param:Element(name="numberOfDownloads")
         val numberOfDownloads: String? = null
-    )
+    ): Serializable
 
     @Root(name = "ads", strict = false)
     data class Ads(

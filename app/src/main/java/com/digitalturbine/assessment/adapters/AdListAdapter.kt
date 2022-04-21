@@ -26,7 +26,7 @@ class AdListAdapter(private var listener: ((item: Response.Ad) -> Unit)? = null)
 
     object DiffCallback: DiffUtil.ItemCallback<Response.Ad>() {
         override fun areItemsTheSame(oldItem: Response.Ad, newItem: Response.Ad): Boolean =
-            oldItem.appId == newItem.appId
+            oldItem.productId == newItem.productId
 
         override fun areContentsTheSame(oldItem: Response.Ad, newItem: Response.Ad): Boolean =
             oldItem != newItem

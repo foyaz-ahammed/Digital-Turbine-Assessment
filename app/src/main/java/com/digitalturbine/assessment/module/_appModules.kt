@@ -3,6 +3,7 @@ package com.digitalturbine.assessment.module
 import com.digitalturbine.assessment.repository.AdsRepository
 import com.digitalturbine.assessment.repository.apis.AdsApi
 import com.digitalturbine.assessment.util.Constants
+import com.digitalturbine.assessment.viewModels.AdDetailViewModel
 import com.digitalturbine.assessment.viewModels.AdListViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,6 +26,7 @@ val repositoryModule = module {
 
 val viewModelModule = module {
     single { AdListViewModel(get()) }
+    single { AdDetailViewModel() }
 }
 
 /**
