@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.recyclerView.adapter = adapter
+        binding.btnRetry.setOnClickListener {
+            viewModel.loadData()
+        }
 
         viewModel.adList.observe(this) { it ->
             adapter.submitList(it.sortedWith( compareByDescending<Response.Ad> { it.numberOfDownloads }.thenByDescending { it.rating }) )
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.loading.observe(this) {
             binding.progressBar.isVisible = it == LoadResult.LOADING
             binding.recyclerView.isVisible = it == LoadResult.SUCCESS
+            binding.errorViews.isVisible = it == LoadResult.FAIL
         }
 
         adapter.setItemClickListener {

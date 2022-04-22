@@ -4,4 +4,6 @@
     <string name="additional_information">Additional Information</string>
     <string name="installs">Installs</string>
     <string name="requires_android">Requires Android</string>
+    <string name="error_message">Error loading data. Please retry.</string>
+    <string name="retry">Retry</string>
 </resources>
