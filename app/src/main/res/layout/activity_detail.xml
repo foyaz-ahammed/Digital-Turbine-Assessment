@@ -33,6 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
+        android:maxLines="1"
         android:gravity="center_vertical"
         android:textSize="13sp"
         android:textColor="#33691e"
@@ -124,8 +125,9 @@
 
     <TextView
         android:id="@+id/installs_label"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/installs"
         android:textColor="#333"
         android:textStyle="bold"
@@ -134,9 +136,27 @@
 
     <TextView
         android:id="@+id/download_count"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         tools:text="10,000+"
         app:layout_constraintTop_toBottomOf="@id/installs_label"
         app:layout_constraintStart_toStartOf="@id/installs_label" />
+
+    <TextView
+        android:id="@+id/requires_android_label"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/requires_android"
+        android:textColor="#333"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/installs_label"
+        app:layout_constraintTop_toTopOf="@id/installs_label" />
+
+    <TextView
+        android:id="@+id/requires_android"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        tools:text="Android 2.3 and up"
+        app:layout_constraintTop_toBottomOf="@id/requires_android_label"
+        app:layout_constraintStart_toStartOf="@id/requires_android_label" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.digitalturbine.assessment.activities
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.digitalturbine.assessment.databinding.ActivityDetailBinding
@@ -20,6 +21,7 @@ class DetailActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
     private val viewModel by viewModel<AdDetailViewModel>()
+    private var toast: Toast ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,11 +49,22 @@ class DetailActivity: AppCompatActivity() {
             binding.description.text = it.productDescription
             binding.btnAction.text = it.callToAction
             binding.downloadCount.text = it.numberOfDownloads
+            binding.requiresAndroid.text = it.minOSVersion?.plus(" and up") ?: "All"
 
             Glide.with(binding.root.context.applicationContext)
                 .load(it.productThumbnail)
                 .fitCenter()
                 .into(binding.image)
+
+            binding.btnAction.setOnClickListener { _ ->
+                toast?.cancel()
+                toast = Toast.makeText(
+                    this,
+                    it.productName + " (" + it.appId + ") " + "will be installed on your device soon",
+                    Toast.LENGTH_SHORT).apply {
+                    show()
+                }
+            }
         }
     }
 }
