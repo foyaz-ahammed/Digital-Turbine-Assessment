@@ -24,6 +24,15 @@ class AdListAdapter(private var listener: ((item: Response.Ad) -> Unit)? = null)
         holder.bind(item)
     }
 
+    /**
+     * Clear memory when view is recycled
+     */
+    override fun onViewRecycled(holder: ViewHolder) {
+        super.onViewRecycled(holder)
+
+        holder.recycle()
+    }
+
     object DiffCallback: DiffUtil.ItemCallback<Response.Ad>() {
         override fun areItemsTheSame(oldItem: Response.Ad, newItem: Response.Ad): Boolean =
             oldItem.productId == newItem.productId
@@ -54,6 +63,10 @@ class AdListAdapter(private var listener: ((item: Response.Ad) -> Unit)? = null)
             binding.root.setOnClickListener {
                 listener?.invoke(item)
             }
+        }
+
+        fun recycle() {
+            Glide.with(binding.root.context).clear(binding.productThumbnail)
         }
     }
 }
