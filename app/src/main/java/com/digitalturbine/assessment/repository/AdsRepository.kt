@@ -5,6 +5,9 @@ import com.digitalturbine.assessment.repository.entities.DataResult
 import com.digitalturbine.assessment.repository.entities.Response
 import java.lang.Exception
 
+/**
+ * Repository class containing network api
+ */
 class AdsRepository(private val api: AdsApi) {
     suspend fun getAdsList() : DataResult<List<Response.Ad>> =
         try {

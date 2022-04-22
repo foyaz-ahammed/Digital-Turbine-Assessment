@@ -1,5 +1,8 @@
 package com.digitalturbine.assessment.util
 
+/**
+ * Define constant variables
+ */
 object Constants {
     const val BASE_URL = "https://ads.appia.com/"
     const val ID = 5351

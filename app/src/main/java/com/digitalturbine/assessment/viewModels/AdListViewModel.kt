@@ -13,6 +13,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * [ViewModel] containing list of data
+ */
 class AdListViewModel(private val repository: AdsRepository): ViewModel() {
     companion object {
         val TAG = AdListViewModel::class.java.simpleName

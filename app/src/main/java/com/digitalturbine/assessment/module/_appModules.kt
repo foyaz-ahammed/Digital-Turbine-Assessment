@@ -13,7 +13,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import java.util.concurrent.TimeUnit
 
-// Define modules
+// Define koin modules
 val networkModule = module {
     single { provideRetrofit(get()) }
     single { provideOkHttpClient() }
@@ -54,4 +54,7 @@ private fun provideOkHttpClient() = OkHttpClient.Builder()
     )
     .build()
 
-private fun provideApi(retrofit: Retrofit) = retrofit.create(AdsApi::class.java)
+/**
+ * @return [AdsApi] instance
+ */
+private fun provideApi(retrofit: Retrofit): AdsApi = retrofit.create(AdsApi::class.java)
